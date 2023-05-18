@@ -1,12 +1,13 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QWidget, QLineEdit, QHBoxLayout, QVBoxLayout, QPushButton
 
+
 class Calculator(QWidget):
     def __init__(self):
         super(Calculator, self).__init__()
         self.num_1 = 0.0
         self.op = None
-        
+
         self.vbox = QVBoxLayout(self)
         self.hbox_input = QHBoxLayout()
         self.hbox_first = QHBoxLayout()
@@ -59,7 +60,7 @@ class Calculator(QWidget):
         self.b_plus = QPushButton("+", self)
         self.hbox_third.addWidget(self.b_plus)
 
-        self.b_point= QPushButton(".", self)
+        self.b_point = QPushButton(".", self)
         self.hbox_result.addWidget(self.b_point)
 
         self.b_0 = QPushButton("0", self)
@@ -99,7 +100,11 @@ class Calculator(QWidget):
             self.input.setText(line + param)
 
     def _operation(self, op):
-        self.num_1 = float(self.input.text())
+        line = self.input.text()
+        if line == "":
+            self.num_1 = 0.0
+        else:
+            self.num_1 = float(line)
         self.op = op
         self.input.setText("")
 
