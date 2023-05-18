@@ -4,6 +4,9 @@ from PyQt5.QtWidgets import QApplication, QWidget, QLineEdit, QHBoxLayout, QVBox
 class Calculator(QWidget):
     def __init__(self):
         super(Calculator, self).__init__()
+        self.num_1 = 0.0
+        self.op = None
+        
         self.vbox = QVBoxLayout(self)
         self.hbox_input = QHBoxLayout()
         self.hbox_first = QHBoxLayout()
